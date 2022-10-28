@@ -1,10 +1,10 @@
 import {useState} from 'react'
 import {
 	AppShell,
-	Navbar,
+
 	Header,
 	Footer,
-	Aside,
+
 	Text,
 	MediaQuery,
 	Burger,

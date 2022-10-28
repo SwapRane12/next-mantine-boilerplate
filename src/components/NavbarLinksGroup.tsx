@@ -83,7 +83,7 @@ export default function LinksGroup({
 	const ChevronIcon = theme.dir === "ltr" ? IconChevronRight : IconChevronLeft
 	const items = (hasLinks ? links : []).map((link, index) => (
 		<NextLink key={index} href={link.link} passHref>
-			<Text component="a" className={classes.link} key={link.label}>
+			<Text  className={classes.link} >
 				{link.label}
 			</Text>
 		</NextLink>
@@ -121,27 +121,27 @@ export default function LinksGroup({
 	)
 }
 
-const mockdata = {
-	label: "Releases",
-	icon: IconCalendarStats,
-	links: [
-		{ label: "Upcoming releases", link: "/" },
-		{ label: "Previous releases", link: "/" },
-		{ label: "Releases schedule", link: "/" },
-	],
-}
+// const mockdata = {
+// 	label: "Releases",
+// 	icon: IconCalendarStats,
+// 	links: [
+// 		{ label: "Upcoming releases", link: "/" },
+// 		{ label: "Previous releases", link: "/" },
+// 		{ label: "Releases schedule", link: "/" },
+// 	],
+// }
 
-export function NavbarLinksGroup() {
-	return (
-		<Box
-			sx={(theme) => ({
-				minHeight: 220,
-				padding: theme.spacing.md,
-				backgroundColor:
-					theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.white,
-			})}
-		>
-			<LinksGroup {...mockdata} />
-		</Box>
-	)
-}
+// export function NavbarLinksGroup() {
+// 	return (
+// 		<Box
+// 			sx={(theme) => ({
+// 				minHeight: 220,
+// 				padding: theme.spacing.md,
+// 				backgroundColor:
+// 					theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.white,
+// 			})}
+// 		>
+// 			<LinksGroup {...mockdata} />
+// 		</Box>
+// 	)
+// }

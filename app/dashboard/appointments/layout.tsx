@@ -16,7 +16,7 @@ export default function AppointmentLayout({
 				<Title order={2} className="">Appointments</Title>
 				<div className="flex flex-col w-full sm:w-auto sm:flex-row flex-wrap gap-2">
 					<NextLink href="/dashboard/patients/new" passHref>
-						<Button className="w-full sm:w-auto " component="a" variant="filled" color="green">New
+						<Button className="w-full sm:w-auto " variant="filled" color="green">New
 							Appointment</Button>
 					</NextLink>
 					<Button className="w-full sm:w-auto " variant="filled" color="blue">All Appointments</Button>

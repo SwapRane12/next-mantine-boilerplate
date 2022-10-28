@@ -85,7 +85,7 @@ export default function LinksGroup({
 	const ChevronIcon = theme.dir === 'ltr' ? IconChevronRight : IconChevronLeft
 	const items = (hasLinks ? links : []).map((link, index) => (
 		<NextLink key={index} href={link.link} passHref>
-			<Text component="a" className={classes.link}>
+			<Text className={classes.link}>
 				{link.label}
 			</Text>
 		</NextLink>

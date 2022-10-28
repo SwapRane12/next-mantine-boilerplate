@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
 import {useState} from 'react'
 import {
 	AppShell,
-
+	
 	Header,
 	Footer,
-
+	
 	Text,
 	MediaQuery,
 	Burger,
@@ -30,6 +30,11 @@ export default function UserLayout({children}: Props) {
 						theme.colorScheme === 'dark'
 							? theme.colors.dark[8]
 							: theme.colors.gray[0],
+					color:
+						theme.colorScheme === 'dark'
+							? theme.colors.dark[0]
+							: theme.black,
+					
 				},
 			}}
 			navbarOffsetBreakpoint="sm"
@@ -48,7 +53,14 @@ export default function UserLayout({children}: Props) {
 				</Footer>
 			}
 			header={
-				<Header height={70} p="md">
+				<Header height={70} p="md" styles={{
+					root: {
+						color:
+							theme.colorScheme === 'dark'
+								? theme.colors.dark[0]
+								: theme.black,
+					}
+				}}>
 					<div
 						style={{display: 'flex', alignItems: 'center', height: '100%'}}
 					>
@@ -62,7 +74,10 @@ export default function UserLayout({children}: Props) {
 							/>
 						</MediaQuery>
 						
-						<Text>Application header</Text>
+						<Text
+						
+						
+						>Application header</Text>
 					</div>
 					<div>
 					

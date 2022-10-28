@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {Navbar, ScrollArea, createStyles} from '@mantine/core'
 import {
@@ -12,7 +12,7 @@ import {
 } from '@tabler/icons'
 import UserButton from '../UserButton'
 import LinksGroup from '../NavbarLinksGroup'
-import Logo from '../Logo'
+
 import ColorSwitch from '../ColorSwitch'
 
 const mockdata = [
@@ -46,6 +46,7 @@ const mockdata = [
 	{
 		label: 'Register',
 		icon: IconCalendarStats,
+		link: '/dashboard/patients/'
 	},
 	{label: 'E-Wallet', icon: IconPresentationAnalytics},
 	{label: 'Payout', icon: IconFileAnalytics},

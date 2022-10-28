@@ -1,4 +1,3 @@
-'use client'
 import {useState} from 'react'
 import NextLink from 'next/link'
 import {
@@ -38,12 +37,11 @@ const useStyles = createStyles((theme) => ({
 	link: {
 		fontWeight: 500,
 		display: 'block',
-		textDecoration: 'none',
+		
 		padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
 		paddingLeft: 31,
 		marginLeft: 30,
 		fontSize: theme.fontSizes.sm,
-		
 		color:
 			theme.colorScheme === 'dark'
 				? theme.colors.dark[0]
@@ -71,6 +69,7 @@ interface LinksGroupProps {
 	label: string
 	initiallyOpened?: boolean
 	links?: { label: string; link: string }[]
+	link?: string
 }
 
 export default function LinksGroup({
@@ -78,6 +77,7 @@ export default function LinksGroup({
 	                                   label,
 	                                   initiallyOpened,
 	                                   links,
+	                                   link
                                    }: LinksGroupProps) {
 	const {classes, theme} = useStyles()
 	const hasLinks = Array.isArray(links)
@@ -85,7 +85,7 @@ export default function LinksGroup({
 	const ChevronIcon = theme.dir === 'ltr' ? IconChevronRight : IconChevronLeft
 	const items = (hasLinks ? links : []).map((link, index) => (
 		<NextLink key={index} href={link.link} passHref>
-			<Text className={classes.link}>
+			<Text className={classes.link} key={link.label}>
 				{link.label}
 			</Text>
 		</NextLink>
@@ -93,18 +93,19 @@ export default function LinksGroup({
 	
 	return (
 		<>
-			<UnstyledButton
-				onClick={() => setOpened((o) => !o)}
-				className={classes.control}
-			>
-				<Group position="apart" spacing={0}>
-					<Box sx={{display: 'flex', alignItems: 'center'}}>
-						<ThemeIcon variant="light" size={30}>
-							<Icon size={18}/>
-						</ThemeIcon>
-						<Box ml="md">{label}</Box>
-					</Box>
-					{hasLinks && (
+			{hasLinks && !link ? (
+				<UnstyledButton
+					onClick={() => setOpened((o) => !o)}
+					className={classes.control}
+				>
+					<Group position="apart" spacing={0}>
+						<Box sx={{display: 'flex', alignItems: 'center'}}>
+							<ThemeIcon variant="light" size={30}>
+								<Icon size={18}/>
+							</ThemeIcon>
+							<Box ml="md">{label}</Box>
+						</Box>
+						
 						<ChevronIcon
 							className={classes.chevron}
 							size={14}
@@ -115,35 +116,42 @@ export default function LinksGroup({
 									: 'none',
 							}}
 						/>
-					)}
-				</Group>
-			</UnstyledButton>
+					
+					</Group>
+				</UnstyledButton>
+			) : link ? (
+				<NextLink href={link} passHref>
+					<UnstyledButton
+						onClick={() => setOpened((o) => !o)}
+						className={classes.control}
+					>
+						<Group position="apart" spacing={0}>
+							<Box sx={{display: 'flex', alignItems: 'center'}}>
+								<ThemeIcon variant="light" size={30}>
+									<Icon size={18}/>
+								</ThemeIcon>
+								<Box ml="md">{label}</Box>
+							</Box>
+						</Group>
+					</UnstyledButton>
+				</NextLink>
+			) : (
+				<UnstyledButton
+					onClick={() => setOpened((o) => !o)}
+					className={classes.control}
+				>
+					<Group position="apart" spacing={0}>
+						<Box sx={{display: 'flex', alignItems: 'center'}}>
+							<ThemeIcon variant="light" size={30}>
+								<Icon size={18}/>
+							</ThemeIcon>
+							<Box ml="md">{label}</Box>
+						</Box>
+					</Group>
+				</UnstyledButton>
+			)}
 			{hasLinks ? <Collapse in={opened}>{items}</Collapse> : null}
 		</>
 	)
 }
 
-// const mockdata = {
-// 	label: "Releases",
-// 	icon: IconCalendarStats,
-// 	links: [
-// 		{ label: "Upcoming releases", link: "/" },
-// 		{ label: "Previous releases", link: "/" },
-// 		{ label: "Releases schedule", link: "/" },
-// 	],
-// }
-
-// export function NavbarLinksGroup() {
-// 	return (
-// 		<Box
-// 			sx={(theme) => ({
-// 				minHeight: 220,
-// 				padding: theme.spacing.md,
-// 				backgroundColor:
-// 					theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.white,
-// 			})}
-// 		>
-// 			<LinksGroup {...mockdata} />
-// 		</Box>
-// 	)
-// }

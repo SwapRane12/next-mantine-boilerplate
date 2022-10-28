@@ -1,15 +1,15 @@
-"use client"
-import './globals.css'
+'use client'
+
 import UserLayout from '../../src/components/layouts/UserLayout'
 
 export default function DashboardLayout({
-	                                   children,
-                                   }: {
+	                                        children,
+                                        }: {
 	children: React.ReactNode
 }) {
 	return (
-<UserLayout>
-	{children}
-</UserLayout>
+		<UserLayout>
+			{children}
+		</UserLayout>
 	)
 }

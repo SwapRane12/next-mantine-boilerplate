@@ -10,23 +10,25 @@ export default function AppointmentLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<div>
+		<>
 			<div className=" flex flex-col gap-2">
 				<div className="flex flex-col  sm:flex-row justify-between">
-					<Title order={2} className="">Patients</Title>
-					<div className="flex gap-2">
+					<Title order={2} className="">Appointments</Title>
+					<div className="flex flex-col w-full sm:w-auto sm:flex-row flex-wrap gap-2">
 						<NextLink href="/dashboard/patients/new" passHref>
-							<Button component="a" variant="filled" color="green">New Patient</Button>
+							<Button className="w-full sm:w-auto " component="a" variant="filled" color="green">New
+								Appointment</Button>
 						</NextLink>
-						<Button variant="filled" color="blue">All Patients</Button>
+						<Button className="w-full sm:w-auto " variant="filled" color="blue">All Appointments</Button>
 					</div>
+				
 				</div>
 			
 			
 			</div>
 			
 			{children}
-		</div>
+		</>
 	
 	
 	)

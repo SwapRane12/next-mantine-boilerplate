@@ -14,6 +14,7 @@ import {
 	Title, Box
 } from '@mantine/core'
 import {IconArrowLeft} from '@tabler/icons'
+import NextLink from 'next/link'
 
 const useStyles = createStyles((theme) => ({
 	title: {
@@ -53,7 +54,11 @@ export default function ForgotPasswordPage() {
 					<Anchor color="dimmed" size="sm" className={classes.control}>
 						<Center inline>
 							<IconArrowLeft size={12} stroke={1.5}/>
-							<Box ml={5}>Back to login page</Box>
+							<Box ml={5}>
+								<NextLink href="/auth/login">
+									Back to login page
+								</NextLink>
+							</Box>
 						</Center>
 					</Anchor>
 					<Button className={classes.control}>Reset password</Button>

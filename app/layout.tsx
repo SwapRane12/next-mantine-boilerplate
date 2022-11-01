@@ -1,5 +1,5 @@
-import './globals.css'
 import RootStyleRegistry from './emotion'
+import './globals.css'
 
 export default function RootLayout({
 	                                   children,
@@ -15,6 +15,7 @@ export default function RootLayout({
 			<link rel="icon" href="/public/favicon.ico"/>
 		</head>
 		<body>
+		
 		<RootStyleRegistry>
 			{children}
 		</RootStyleRegistry>

@@ -1,3 +1,9 @@
 @tailwind base;
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
 @tailwind components;
 @tailwind utilities;
+

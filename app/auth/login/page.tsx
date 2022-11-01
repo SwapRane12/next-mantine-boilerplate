@@ -24,11 +24,12 @@ export default function LoginPage() {
 				<PasswordInput label="Password" placeholder="Your password" required mt="md"/>
 				<Group position="apart" mt="md">
 					<Checkbox label="Remember me"/>
-					<NextLink href="/auth/forgot-password" passHref>
-						<Text size="sm">
-							Forgot password?
-						</Text>
+					
+					<NextLink href="/auth/forgot-password">
+						<Anchor color="dimmed" size="sm">
+							Forgot password? </Anchor>
 					</NextLink>
+				
 				
 				</Group>
 				<Button fullWidth mt="xl">

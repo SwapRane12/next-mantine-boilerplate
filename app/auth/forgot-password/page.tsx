@@ -49,7 +49,7 @@ export default function ForgotPasswordPage() {
 			</Text>
 			
 			<Paper withBorder shadow="md" p={30} radius="md" mt="xl">
-				<TextInput label="Your email" placeholder="me@mantine.dev" required/>
+				<TextInput label="Your email" placeholder="me@mail.com" required/>
 				<Group position="apart" mt="lg" className={classes.controls}>
 					<NextLink href="/auth/login">
 						<Anchor color="dimmed" size="sm" className={classes.control}>
